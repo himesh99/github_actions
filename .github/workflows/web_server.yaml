@@ -19,3 +19,5 @@ jobs:
     steps:
       - name: Deploying web app to cloud
         run: echo "Deploying to cloud...."
+      - name: Output 'github' content
+        run: echo "${{ toJSON( github ) }}"
