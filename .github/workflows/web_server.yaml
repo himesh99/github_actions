@@ -15,7 +15,7 @@ jobs:
           curl -s localhost:8080
   deploy_web_app:
     needs: test_web_app
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Deploying web app to cloud
         run: echo "Deploying to cloud...."
