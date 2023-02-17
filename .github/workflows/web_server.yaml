@@ -1,0 +1,21 @@
+name: Test and eploy web app
+on: push
+
+jobs:
+  test_web_app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nginx docker image and container
+        run: |
+          docker image pull nginx
+          docker container run -d -p 8080:80 nginx
+      - name: Test web app is running
+        run: |
+          python3 -c "import requests; r = requests.get('http://localhost:8080'); print(r.status_code)"
+          curl -s localhost:8080
+  deploy_web_app:
+    needs: test_web_app
+    runs_on: ubuntu_latest
+    steps:
+      - name: Deploying web app to cloud
+        run: echo "Deploying to cloud...."
