@@ -2,12 +2,12 @@ name: Deploy web app
 on: push
 
 jobs:
-    deploy_app:
-      runs-on: ubuntu:-latest
+    test_code:
+      runs-on: ubuntu-latest
       steps:
           - name: Download code
             uses: actions/checkout@v3
-          - name: Investigate the envi
+          - name: Investigate the environment
             run:
               pwd
               ls -lart
